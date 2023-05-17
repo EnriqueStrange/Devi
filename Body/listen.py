@@ -1,4 +1,4 @@
-import googletrans
+from googletrans import Translator
 import speech_recognition as sr
 
 
@@ -13,11 +13,21 @@ def Listen():
         try:
             print("Recognizing...")
             query = r.recognize_google(audio, language='hi')
-            print(f"user said: {query}\n")
         except Exception as e:
             print("No clue what you said, listening again...")
-            return "None"
+            return "No clue what you said, listening again..."
         return query
         
+def TranslattionHindiToEnglish(text):
+    line = str(text)
+    translate = Translator()
+    result = translate.translate(line)
+    data = result.text
+    return data
 
+def MicConnect():
+    query = Listen()
+    data = TranslattionHindiToEnglish(query)
+    return data
 
+print(MicConnect())
