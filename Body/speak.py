@@ -1,6 +1,7 @@
-import pyttsx3     
+import pyttsx3
 
-def speak(text):
+
+def Speak(text):
     engine = pyttsx3.init("sapi5")
     voices = engine.setProperty("rate", 180)
     voices = engine.getProperty("voices")
@@ -10,6 +11,3 @@ def speak(text):
     print("")
     engine.say(text)
     engine.runAndWait()
-
-
-
