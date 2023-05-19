@@ -2,3 +2,6 @@ googletrans==4.0.0-rc1
 SpeechRecognition
 pyttsx3
 selenium==4.1.3
+pyaudio
+struct
+math
