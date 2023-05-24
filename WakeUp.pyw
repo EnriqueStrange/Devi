@@ -1,5 +1,9 @@
-from googletrans import Translator
 import speech_recognition as sr
+from main import Main
+
+import sys
+sys.path.append('../Body')
+
 
 
 def Listen():
@@ -12,7 +16,7 @@ def Listen():
 
         try:
             print("Recognizing...")
-            query = r.recognize_google(audio, language="hi")
+            query = r.recognize_google(audio, language="en")
         except Exception as e:
             print("No clue what you said, listening again...")
             return "No clue what you said, listening again..."
@@ -20,15 +24,15 @@ def Listen():
         return query
 
 
-def TranslattionHindiToEnglish(text):
-    line = str(text)
-    translate = Translator()
-    result = translate.translate(line)
-    data = result.text
-    return data
+def WakeUpDetected():
+    WakeUpQuery = Listen().lower()
+
+    if "wake up" in WakeUpQuery:
+        print("waking up")
+        Main()
+    else:
+        print("error")
+        pass
 
 
-def MicConnect():
-    query = Listen()
-    data = TranslattionHindiToEnglish(query)
-    return data
+WakeUpDetected()
