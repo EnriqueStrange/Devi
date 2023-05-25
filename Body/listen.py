@@ -12,9 +12,8 @@ def Listen():
 
         try:
             print("Recognizing...")
-            query = r.recognize_google(audio, language="hi")
+            query = r.recognize_google(audio, language="en")
         except Exception as e:
-            print("No clue what you said, listening again...")
             return "No clue what you said, listening again..."
         query = str(query).lower()
         return query
